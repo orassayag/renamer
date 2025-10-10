@@ -1,12 +1,5 @@
 ToDo tasks:
 ===========
--Names project:
--Script Rename with date:
--Get target + (existing name) + value (new name) + dates.
--Add flag if exists "_#date#" + Copy it.
--Run it for:
--Build a script that rename the files into "notes-"
--with the currentDate (the numbers which already exists).
 -Run it also for:
 -Fix all excellence pdf spelling mistakes to "Excellence" in the transfers folder.
 -Run this simple script on a few tests files.

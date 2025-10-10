@@ -36,7 +36,7 @@ export async function processFile(
       // Sleep after rename.
       await sleep(sleepAfterMilliseconds);
     } catch (error) {
-      console.error(`✗ Failed to rename ${fileName}:`, error);
+      console.error(`✗ Failed to rename ${fileName}: (1000000)`, error);
     }
   }
   return renamedFilesCount;

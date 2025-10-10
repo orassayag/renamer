@@ -16,14 +16,14 @@ async function run(): Promise<void> {
   logBeforeRun();
   console.log('===Validate Settings===');
   await validateSettings(SETTINGS);
-  console.log('✓ Settings validation passed');
+  console.log('===✓ Settings validation passed===');
   console.log('===Scan And Rename===');
   const renamedFilesCount: number = await scanAndRenameFiles(
     scanPath,
     ignorePaths
   );
   console.log('\n===================');
-  console.log(`✓ Scan complete! ${renamedFilesCount} file(s) renamed`);
+  console.log(`===✓ Scan complete! ${renamedFilesCount} file(s) renamed===`);
 }
 
 /**

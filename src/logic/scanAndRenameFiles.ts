@@ -38,7 +38,7 @@ export async function scanAndRenameFiles(
       }
     }
   } catch (error) {
-    console.error(`Error scanning directory ${dirPath}:`, error);
+    console.error(`Error scanning directory ${dirPath}: (1000001)`, error);
   }
   return renamedFilesCount;
 }

@@ -1,2 +1,9 @@
 Completed + canceled tasks:
 ===========================
+-Names project: *
+-Script Rename with date: *
+-Get target + (existing name) + value (new name) + dates. *
+-Add flag if exists "_#date#" + Copy it. *
+-Run it for: *
+-Build a script that rename the files into "notes-"
+-with the currentDate (the numbers which already exists). *
