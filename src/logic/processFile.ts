@@ -14,6 +14,7 @@ export async function processFile(
   fileName: string,
   renamedFilesCount: number
 ): Promise<number> {
+  const normalizedFilePath: string = path.normalize(filePath);
   const separatorIndex: number = fileName.indexOf(separator);
   // Check if separator exists in filename.
   if (separatorIndex === -1) {
@@ -28,14 +29,17 @@ export async function processFile(
   if (targetNames.includes(prefix)) {
     const suffix: string = fileName.substring(separatorIndex); // Includes separator and everything after.
     const newFileName: string = replaceName + suffix;
-    const newFilePath: string = path.join(path.dirname(filePath), newFileName);
+    const newFilePath: string = path.join(
+      path.dirname(normalizedFilePath),
+      newFileName
+    );
     try {
-      if (!(await fs.promises.stat(filePath).catch(() => null))) {
+      if (!(await fs.promises.stat(normalizedFilePath).catch(() => null))) {
         // If files are renamed/moved by other processes concurrently, this prevents unhandled promise rejections.
         console.log('Already renamed/moved by other processes concurrently');
         return renamedFilesCount;
       }
-      await fs.promises.rename(filePath, newFilePath);
+      await fs.promises.rename(normalizedFilePath, newFilePath);
       renamedFilesCount++;
       console.log(
         `✓ Renamed: ${fileName} → ${newFileName} (Number ${renamedFilesCount})`
@@ -44,7 +48,7 @@ export async function processFile(
       await sleep(sleepAfterMilliseconds);
     } catch (error) {
       console.error(
-        `✗ Failed to rename file "${fileName}" at "${filePath}" (1000000):`,
+        `✗ Failed to rename file "${fileName}" at "${normalizedFilePath}" (1000000):`,
         error
       );
     }

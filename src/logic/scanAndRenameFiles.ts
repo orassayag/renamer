@@ -12,11 +12,12 @@ export async function scanAndRenameFiles(
   renamedFilesCount: number = 0
 ): Promise<number> {
   try {
-    const entries: fs.Dirent[] = await fs.promises.readdir(dirPath, {
+    const normalizedDirPath: string = path.normalize(dirPath);
+    const entries: fs.Dirent[] = await fs.promises.readdir(normalizedDirPath, {
       withFileTypes: true,
     });
     for (const entry of entries) {
-      const fullPath: string = path.join(dirPath, entry.name);
+      const fullPath: string = path.join(normalizedDirPath, entry.name);
       if (entry.isDirectory()) {
         // Check if this directory should be ignored.
         if (shouldIgnorePath(fullPath, ignorePaths)) {

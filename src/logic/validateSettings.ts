@@ -61,9 +61,10 @@ export async function validateSettings(settings: Settings): Promise<void> {
     throw new Error('Invalid settings: scanPath cannot be empty (1000011)');
   }
   try {
+    const normalizedScanPath: string = path.normalize(settings.scanPath);
     let stats: fs.Stats;
     try {
-      stats = await fs.promises.stat(settings.scanPath);
+      stats = await fs.promises.stat(normalizedScanPath);
     } catch {
       throw new Error(
         `Invalid settings: scanPath "${settings.scanPath}" does not exist or cannot be accessed (1000012)`
@@ -131,7 +132,8 @@ export async function validateSettings(settings: Settings): Promise<void> {
         `Invalid settings: ignorePaths cannot contain path separators: "${ignorePath}" (1000022)`
       );
     }
-    const absPath: string = path.join(settings.scanPath, ignorePath);
+    const normalizedScanPath: string = path.normalize(settings.scanPath);
+    const absPath: string = path.join(normalizedScanPath, ignorePath);
     if ((await fs.promises.stat(absPath).catch(() => null)) === null) {
       console.warn(
         `⚠️ Warning: ignorePath "${ignorePath}" does not exist under "${settings.scanPath}" (1000023)`

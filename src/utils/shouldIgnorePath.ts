@@ -7,8 +7,9 @@ export function shouldIgnorePath(
   dirPath: string,
   ignorePaths: string[]
 ): boolean {
-  const normalizedDir: string = dirPath.toLowerCase();
-  return ignorePaths.some((ignoreName) => {
+  const normalizedPath: string = path.normalize(dirPath);
+  const normalizedDir: string = normalizedPath.toLowerCase();
+  return ignorePaths.some((ignoreName: string) => {
     const normalizedIgnore: string = ignoreName.toLowerCase();
     return (
       normalizedDir.includes(path.sep + normalizedIgnore + path.sep) ||
