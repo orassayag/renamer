@@ -24,7 +24,7 @@ export async function processFile(
     return renamedFilesCount;
   }
   // Extract the part before the separator.
-  const [prefix] = fileName.split(separator, 1);
+  const prefix: string = fileName.substring(0, separatorIndex);
   // Check if prefix exactly matches any of the target names.
   if (targetNames.includes(prefix)) {
     const suffix: string = fileName.substring(separatorIndex); // Includes separator and everything after.
@@ -34,12 +34,17 @@ export async function processFile(
       newFileName
     );
     try {
-      if (!(await fs.promises.stat(normalizedFilePath).catch(() => null))) {
-        // If files are renamed/moved by other processes concurrently, this prevents unhandled promise rejections.
-        console.log('Already renamed/moved by other processes concurrently');
+      try {
+        await fs.promises.access(normalizedFilePath, fs.constants.F_OK);
+      } catch {
+        console.warn(`⚠️ Skipping: file "${fileName}" no longer exists`);
         return renamedFilesCount;
       }
-      await fs.promises.rename(normalizedFilePath, newFilePath);
+      if (normalizedFilePath !== newFilePath) {
+        await fs.promises.rename(normalizedFilePath, newFilePath);
+      } else {
+        console.warn(`⚠️ Skipping rename: source and destination are the same`);
+      }
       renamedFilesCount++;
       console.log(
         `✓ Renamed: ${fileName} → ${newFileName} (Number ${renamedFilesCount})`

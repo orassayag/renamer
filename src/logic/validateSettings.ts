@@ -133,8 +133,8 @@ export async function validateSettings(settings: Settings): Promise<void> {
       );
     }
     const normalizedScanPath: string = path.normalize(settings.scanPath);
-    const absPath: string = path.join(normalizedScanPath, ignorePath);
-    if ((await fs.promises.stat(absPath).catch(() => null)) === null) {
+    const ignoreAbsPath = path.resolve(settings.scanPath, ignorePath);
+    if (!fs.existsSync(ignoreAbsPath)) {
       console.warn(
         `⚠️ Warning: ignorePath "${ignorePath}" does not exist under "${settings.scanPath}" (1000023)`
       );
