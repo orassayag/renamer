@@ -23,7 +23,7 @@ async function run(): Promise<void> {
     ignorePaths
   );
   console.log('\n===================');
-  console.log(`===✓ Scan complete! ${renamedFilesCount} file(s) renamed===`);
+  console.log(`\n===✓ Scan complete! Renamed ${renamedFilesCount} file(s) ===`);
 }
 
 /**

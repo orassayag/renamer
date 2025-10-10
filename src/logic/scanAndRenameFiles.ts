@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { processFile } from './processFile';
+import { shouldIgnorePath } from '../utils';
 
 /**
  * Recursively scans directory and renames files matching the target pattern.
@@ -18,7 +19,7 @@ export async function scanAndRenameFiles(
       const fullPath: string = path.join(dirPath, entry.name);
       if (entry.isDirectory()) {
         // Check if this directory should be ignored.
-        if (ignorePaths.includes(entry.name)) {
+        if (shouldIgnorePath(fullPath, ignorePaths)) {
           console.log(`⊘ Skipping ignored directory: ${fullPath}`);
           continue;
         }
@@ -38,7 +39,8 @@ export async function scanAndRenameFiles(
       }
     }
   } catch (error) {
-    console.error(`Error scanning directory ${dirPath}: (1000001)`, error);
+    console.error(`✗ Error scanning directory "${dirPath}" (1000001):`, error);
+    throw error; // Optionally rethrow to halt process.
   }
   return renamedFilesCount;
 }
