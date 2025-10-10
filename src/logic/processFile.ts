@@ -11,13 +11,14 @@ const { targetNames, replaceName, separator, sleepAfterMilliseconds } =
  */
 export async function processFile(
   filePath: string,
-  fileName: string
+  fileName: string,
+  renamedFilesCount: number
 ): Promise<number> {
   const separatorIndex: number = fileName.indexOf(separator);
   // Check if separator exists in filename.
   if (separatorIndex === -1) {
     console.log('⊘ Separator not exists in file name, skipping...');
-    return;
+    return renamedFilesCount;
   }
   // Extract the part before the separator.
   const prefix: string = fileName.substring(0, separatorIndex);
@@ -38,4 +39,5 @@ export async function processFile(
       console.error(`✗ Failed to rename ${fileName}:`, error);
     }
   }
+  return renamedFilesCount;
 }

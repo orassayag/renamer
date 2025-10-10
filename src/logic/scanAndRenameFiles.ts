@@ -7,8 +7,9 @@ import { processFile } from './processFile';
  */
 export async function scanAndRenameFiles(
   dirPath: string,
-  ignorePaths: string[]
-): Promise<void> {
+  ignorePaths: string[],
+  renamedFilesCount: number = 0
+): Promise<number> {
   try {
     const entries: fs.Dirent[] = await fs.promises.readdir(dirPath, {
       withFileTypes: true,
@@ -22,13 +23,22 @@ export async function scanAndRenameFiles(
           continue;
         }
         // Recursively scan subdirectories.
-        await scanAndRenameFiles(fullPath, ignorePaths);
+        renamedFilesCount = await scanAndRenameFiles(
+          fullPath,
+          ignorePaths,
+          renamedFilesCount
+        );
       } else if (entry.isFile()) {
         // Process files.
-        await processFile(fullPath, entry.name);
+        renamedFilesCount = await processFile(
+          fullPath,
+          entry.name,
+          renamedFilesCount
+        );
       }
     }
   } catch (error) {
     console.error(`Error scanning directory ${dirPath}:`, error);
   }
+  return renamedFilesCount;
 }

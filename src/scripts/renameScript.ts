@@ -1,4 +1,4 @@
-import { scanAndRenameFiles, validatePath } from '../logic';
+import { scanAndRenameFiles, validateSettings } from '../logic';
 import { SETTINGS } from '../settings';
 
 const {
@@ -9,12 +9,27 @@ const {
   ignorePaths,
   sleepAfterMilliseconds,
 } = SETTINGS;
-let renamedFilesCount = 0;
-
 /**
  * Main execution function.
  */
 async function run(): Promise<void> {
+  logBeforeRun();
+  console.log('===Validate Settings===');
+  await validateSettings(SETTINGS);
+  console.log('✓ Settings validation passed');
+  console.log('===Scan And Rename===');
+  const renamedFilesCount: number = await scanAndRenameFiles(
+    scanPath,
+    ignorePaths
+  );
+  console.log('\n===================');
+  console.log(`✓ Scan complete! ${renamedFilesCount} file(s) renamed`);
+}
+
+/**
+ * Log all data before running the script.
+ */
+function logBeforeRun(): void {
   console.log('File Rename Script');
   console.log('===================');
   console.log(
@@ -28,12 +43,6 @@ async function run(): Promise<void> {
   );
   console.log(`Sleep after rename: ${sleepAfterMilliseconds}ms`);
   console.log('===================\n');
-  console.log('===Validate Path===');
-  await validatePath(scanPath);
-  console.log('===Scan And Rename===');
-  await scanAndRenameFiles(scanPath, ignorePaths);
-  console.log('\n===================');
-  console.log(`✓ Scan complete! ${renamedFilesCount} file(s) renamed`);
 }
 
 // Run the script.

@@ -1,15 +1,46 @@
 {
   "name": "renamer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": false,
+  "description": "A powerful Node.js script for bulk file renaming with pattern-based matching, comprehensive validation, and safe operation features",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/renamer.git"
+  },
+  "keywords": [
+    "file",
+    "files",
+    "rename",
+    "bulk"
+  ],
+  "main": "src/scripts/renameScript.ts",
   "type": "module",
   "scripts": {
-    "lint": "eslint src/**/*.{ts,tsx}"
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "start": "node src/scripts/renameScript.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
+  "files": [
+    "src",
+    ".gitignore",
+    ".prettierrc",
+    "eslint.config.mjs",
+    "LICENSE",
+    "INSTRUCTIONS.md",
+    "package-lock.json",
+    "package.json",
+    "pnpm-lock.yaml",
+    "README.md",
+    "tsconfig.json"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.37.0",
     "@types/node": "^24.7.1",
