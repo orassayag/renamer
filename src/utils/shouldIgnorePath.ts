@@ -8,9 +8,14 @@ export function shouldIgnorePath(
   ignorePaths: string[]
 ): boolean {
   const normalizedPath: string = path.normalize(dirPath);
-  const normalizedDir: string = normalizedPath.toLowerCase();
+  const isWindows: boolean = process.platform === 'win32';
+  const normalizedDir: string = isWindows
+    ? normalizedPath.toLowerCase()
+    : normalizedPath;
   return ignorePaths.some((ignoreName: string) => {
-    const normalizedIgnore: string = ignoreName.toLowerCase();
+    const normalizedIgnore: string = isWindows
+      ? ignoreName.toLowerCase()
+      : ignoreName;
     return (
       normalizedDir.includes(path.sep + normalizedIgnore + path.sep) ||
       normalizedDir.endsWith(path.sep + normalizedIgnore)

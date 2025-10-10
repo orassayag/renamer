@@ -2,6 +2,8 @@ import * as fs from 'fs';
 import { Settings } from '../types';
 import path from 'path';
 
+const INVALID_CHARS_REGEX = /[<>:"|?*\x00-\x1F]/;
+
 /**
  * Validates all settings parameters and throws specific errors for invalid or missing parameters.
  */
@@ -33,6 +35,11 @@ export async function validateSettings(settings: Settings): Promise<void> {
         `Invalid settings: targetNames cannot contain path separators: "${targetName}" (1000006)`
       );
     }
+    if (INVALID_CHARS_REGEX.test(targetName)) {
+      throw new Error(
+        `Invalid settings: targetName contains invalid filename characters: "${targetName}" (1000030)`
+      );
+    }
   }
   // Validate replaceName.
   if (typeof settings.replaceName !== 'string') {
@@ -49,6 +56,11 @@ export async function validateSettings(settings: Settings): Promise<void> {
   ) {
     throw new Error(
       `Invalid settings: replaceName cannot contain path separators: "${settings.replaceName}" (1000009)`
+    );
+  }
+  if (INVALID_CHARS_REGEX.test(settings.replaceName)) {
+    throw new Error(
+      `Invalid settings: replaceName contains invalid filename characters: "${settings.replaceName}" (1000029)`
     );
   }
   // Validate scanPath.
@@ -127,16 +139,9 @@ export async function validateSettings(settings: Settings): Promise<void> {
         'Invalid settings: ignorePaths cannot contain empty strings (1000021)'
       );
     }
-    if (ignorePath.includes('/') || ignorePath.includes('\\')) {
+    if (path.isAbsolute(ignorePath)) {
       throw new Error(
-        `Invalid settings: ignorePaths cannot contain path separators: "${ignorePath}" (1000022)`
-      );
-    }
-    const normalizedScanPath: string = path.normalize(settings.scanPath);
-    const ignoreAbsPath = path.resolve(settings.scanPath, ignorePath);
-    if (!fs.existsSync(ignoreAbsPath)) {
-      console.warn(
-        `⚠️ Warning: ignorePath "${ignorePath}" does not exist under "${settings.scanPath}" (1000023)`
+        `Invalid settings: ignorePaths must be relative paths, found absolute path: "${ignorePath}" (1000022)`
       );
     }
   }

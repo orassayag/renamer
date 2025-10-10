@@ -34,23 +34,17 @@ export async function processFile(
       newFileName
     );
     try {
-      try {
-        await fs.promises.access(normalizedFilePath, fs.constants.F_OK);
-      } catch {
-        console.warn(`⚠️ Skipping: file "${fileName}" no longer exists`);
-        return renamedFilesCount;
-      }
       if (normalizedFilePath !== newFilePath) {
         await fs.promises.rename(normalizedFilePath, newFilePath);
+        renamedFilesCount++;
+        console.log(
+          `✓ Renamed: ${fileName} → ${newFileName} (Number ${renamedFilesCount})`
+        );
+        // Sleep after rename.
+        await sleep(sleepAfterMilliseconds);
       } else {
         console.warn(`⚠️ Skipping rename: source and destination are the same`);
       }
-      renamedFilesCount++;
-      console.log(
-        `✓ Renamed: ${fileName} → ${newFileName} (Number ${renamedFilesCount})`
-      );
-      // Sleep after rename.
-      await sleep(sleepAfterMilliseconds);
     } catch (error) {
       console.error(
         `✗ Failed to rename file "${fileName}" at "${normalizedFilePath}" (1000000):`,
