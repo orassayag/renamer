@@ -1,9 +1,9 @@
 import { Settings } from '../types';
 
 export const SETTINGS: Settings = {
-  targetNames: [],
-  replaceName: 'notes-',
-  scanPath: 'C:\\Users\\Or Assayag\\Downloads',
+  targetNames: ['DetailsPhoneQ&A', 'DetailsSMSQ&A', 'DetailsEmailQ&A'],
+  replaceName: 'notes',
+  scanPath: 'G:\\My Drive',
   separator: '_',
   ignorePaths: [],
   sleepAfterMilliseconds: 50,
