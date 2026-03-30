@@ -2,7 +2,7 @@
   "name": "renamer",
   "version": "1.0.0",
   "private": false,
-  "description": "A powerful Node.js script for bulk file renaming with pattern-based matching, comprehensive validation, and safe operation features",
+  "description": "A powerful Node.js/TypeScript utility for bulk file renaming with pattern-based matching, comprehensive validation, and safe operation features",
   "repository": {
     "type": "git",
     "url": "git://github.com/orassayag/renamer.git"
@@ -11,7 +11,15 @@
     "file",
     "files",
     "rename",
-    "bulk"
+    "bulk",
+    "renamer",
+    "batch",
+    "pattern-matching",
+    "typescript",
+    "file-management",
+    "bulk-rename",
+    "file-renaming",
+    "automation"
   ],
   "main": "src/scripts/renameScript.ts",
   "type": "module",
@@ -35,6 +43,7 @@
     ".prettierrc",
     "eslint.config.mjs",
     "LICENSE",
+    "CONTRIBUTING.md",
     "INSTRUCTIONS.md",
     "package-lock.json",
     "package.json",

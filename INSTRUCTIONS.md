@@ -1,4 +1,16 @@
-# Renamer - File Renaming Script Instructions
+# Instructions
+
+## Setup Instructions
+
+1. Open the project in your IDE (VSCode recommended)
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Build the project:
+   ```bash
+   pnpm build
+   ```
 
 ## Overview
 
@@ -78,27 +90,36 @@ All settings are configured in `src/settings/index.ts`. Edit the `SETTINGS` obje
 
 ## Usage
 
-### Prerequisites
+## Running Scripts
 
-1. **Node.js**: Ensure Node.js is installed (version 14 or higher recommended)
-2. **Dependencies**: Install dependencies using:
-   ```bash
-   npm install
-   # or
-   pnpm install
-   ```
-
-### Running the Script
+### Run the Rename Script
 
 1. **Configure Settings**: Edit `src/settings/index.ts` with your desired parameters
 2. **Run the Script**:
    ```bash
-   npm start
-   # or
    pnpm start
-   # or
-   node src/scripts/renameScript.ts
    ```
+
+### Build the Project
+
+Compiles TypeScript to JavaScript:
+```bash
+pnpm build
+```
+
+### Lint the Code
+
+Checks code for linting errors:
+```bash
+pnpm lint
+```
+
+### Development Mode
+
+Run with watch mode for development:
+```bash
+pnpm dev
+```
 
 ### Example Configuration
 
@@ -220,6 +241,34 @@ The script includes comprehensive error handling:
 - **File Extensions**: Preserves original file extensions
 - **One Separator**: Uses single-character separators only
 
+## Error Codes
+
+All errors include a unique code (1000001-1000030) for easy troubleshooting. Error codes follow the pattern `(1000XXX)` and are included at the end of error messages.
+
+## Development
+
+### Building
+```bash
+pnpm build
+```
+
+### Linting
+```bash
+pnpm lint
+```
+
+### Running in Development Mode
+```bash
+pnpm dev
+```
+
+## Notes
+
+- Always backup important directories before bulk operations
+- Test with a small directory before processing large volumes
+- The script provides detailed console output for all operations
+- All settings are validated before processing begins
+
 ## Support
 
 For issues, questions, or contributions:
@@ -228,3 +277,11 @@ For issues, questions, or contributions:
 - Verify all settings are correctly configured
 - Ensure file system permissions are adequate
 - Test with a small directory first to validate behavior
+
+## Author
+
+* **Or Assayag** - *Initial work* - [orassayag](https://github.com/orassayag)
+* Or Assayag <orassayag@gmail.com>
+* GitHub: https://github.com/orassayag
+* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+* LinkedIn: https://linkedin.com/in/orassayag
