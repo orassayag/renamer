@@ -2,7 +2,7 @@
 
 A powerful Node.js/TypeScript utility for bulk file renaming with pattern-based matching, comprehensive validation, and safe operation features.
 
-Built with TypeScript for type safety and reliability, this tool helps automate the process of renaming multiple files that follow specific naming patterns.
+Built in October 2025, with TypeScript for type safety and reliability, this tool helps automate the process of renaming multiple files that follow specific naming patterns.
 
 ## Features
 
@@ -48,16 +48,16 @@ Built with TypeScript for type safety and reliability, this tool helps automate 
 
 **Configure settings** in `src/settings/index.ts`:
 
-   ```typescript
-   export const SETTINGS: Settings = {
-     targetNames: ['IMG', 'Screenshot'],
-     replaceName: 'notes-',
-     scanPath: 'C:\\Users\\Username\\Downloads',
-     separator: '_',
-     ignorePaths: ['node_modules', '.git'],
-     sleepAfterMilliseconds: 50,
-   };
-   ```
+```typescript
+export const SETTINGS: Settings = {
+  targetNames: ['IMG', 'Screenshot'],
+  replaceName: 'notes-',
+  scanPath: 'C:\\Users\\Username\\Downloads',
+  separator: '_',
+  ignorePaths: ['node_modules', '.git'],
+  sleepAfterMilliseconds: 50,
+};
+```
 
 ### Running the Script
 
@@ -94,7 +94,7 @@ flowchart TD
     L --> G
     M --> G
     P --> G
-    
+
     style A fill:#e1f5e1
     style Z fill:#e1f5e1
     style E fill:#ffe1e1
@@ -221,6 +221,7 @@ The script provides unique error codes (1000001-1000030) for all validation and 
 ## Development
 
 The project uses:
+
 - **TypeScript** for type safety and better developer experience
 - **pnpm** for fast, efficient package management
 - **ESLint** for code linting and quality checks
@@ -234,10 +235,11 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## Author
 
 **Or Assayag**
-* Email: <orassayag@gmail.com>
-* GitHub: [orassayag](https://github.com/orassayag)
-* StackOverflow: [or-assayag](https://stackoverflow.com/users/4442606/or-assayag?tab=profile)
-* LinkedIn: [orassayag](https://linkedin.com/in/orassayag)
+
+- Email: <orassayag@gmail.com>
+- GitHub: [orassayag](https://github.com/orassayag)
+- StackOverflow: [or-assayag](https://stackoverflow.com/users/4442606/or-assayag?tab=profile)
+- LinkedIn: [orassayag](https://linkedin.com/in/orassayag)
 
 ## Contributing
 
