@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { processFile } from './processFile';
+import { processFile } from './index';
 import { shouldIgnorePath } from '../utils';
 
 /**

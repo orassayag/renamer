@@ -2,11 +2,7 @@
   "name": "renamer",
   "version": "1.0.0",
   "private": false,
-  "description": "A powerful Node.js/TypeScript utility for bulk file renaming with pattern-based matching, comprehensive validation, and safe operation features",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/orassayag/renamer.git"
-  },
+  "description": "A powerful Node.js/TypeScript utility for bulk file renaming with pattern-based matching, comprehensive validation, and safe operation features. Built with TypeScript for type safety and reliability, this tool helps automate the process of renaming multiple files that follow specific naming patterns",
   "keywords": [
     "file",
     "files",
@@ -21,15 +17,24 @@
     "file-renaming",
     "automation"
   ],
-  "main": "src/scripts/renameScript.ts",
-  "type": "module",
-  "scripts": {
-    "lint": "eslint src/**/*.{ts,tsx}",
-    "start": "tsx src/scripts/renameScript.ts",
-    "build": "tsc",
-    "dev": "tsx watch src/scripts/renameScript.ts"
+  "homepage": "https://github.com/orassayag/renamer#readme",
+  "bugs": {
+    "url": "https://github.com/orassayag/renamer/issues"
   },
-  "author": "Or Assayag <orassayag@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/renamer.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/orassayag"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Or Assayag",
+    "email": "orassayag@gmail.com",
+    "url": "https://github.com/orassayag"
+  },
   "contributors": [
     {
       "name": "Or Assayag",
@@ -37,21 +42,42 @@
       "url": "https://github.com/orassayag"
     }
   ],
+  "type": "module",
+  "main": "src/scripts/renameScript.ts",
   "files": [
+    ".github",
+    ".vscode",
+    "dist",
+    "misc",
     "src",
     ".gitignore",
+    ".npmrc",
     ".prettierrc",
-    "eslint.config.mjs",
-    "LICENSE",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
+    "eslint.config.mjs",
     "INSTRUCTIONS.md",
-    "package-lock.json",
+    "LICENSE",
     "package.json",
     "pnpm-lock.yaml",
+    "pnpm-workspace.yaml",
     "README.md",
-    "tsconfig.json"
+    "SECURITY.md",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "vitest.config.ts"
   ],
-  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/scripts/renameScript.ts",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "start": "tsx src/scripts/renameScript.ts",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.9.1",
@@ -63,6 +89,11 @@
     "prettier": "^3.8.3",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.60.1"
+    "typescript-eslint": "^8.60.1",
+    "vitest": "^4.1.8"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
   }
 }

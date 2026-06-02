@@ -1,6 +1,60 @@
 # Instructions
 
+## Setup and Usage Instructions
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [System Requirements](#system-requirements)
+3. [Initial Setup](#initial-setup)
+4. [Install Dependencies](#install-dependencies)
+5. [Configuration](#configuration)
+6. [Usage](#usage)
+7. [Available Commands](#available-commands)
+8. [Development Commands](#development-commands)
+9. [Script Behavior](#script-behavior)
+10. [Error Handling](#error-handling)
+11. [Best Practices](#best-practices)
+12. [Troubleshooting](#troubleshooting)
+13. [Documentation](#documentation)
+14. [Extending the Application](#extending-the-application)
+15. [External Resources](#external-resources)
+16. [Last Updated](#last-updated)
+17. [Version](#version)
+
+## Prerequisites
+
+## System Requirements
+
+- **Node.js**: Version 18 or higher
+- **Package Manager**: pnpm (recommended) or npm
+- **Operating System**: macOS, Linux, or Windows
+- **Memory**: 1GB RAM minimum
+- **Disk Space**: 100MB for application and dependencies
+
 ## Setup Instructions
+
+## Initial Setup
+
+## Install Dependencies
+
+**Using pnpm (recommended):**
+
+```bash
+pnpm install
+```
+
+**Using npm:**
+
+```bash
+npm install
+```
+
+**Verify installation:**
+
+```bash
+pnpm build
+```
 
 1. Open the project in your IDE (VSCode recommended)
 2. Install dependencies:
@@ -91,6 +145,30 @@ All settings are configured in `src/settings/index.ts`. Edit the `SETTINGS` obje
 ## Usage
 
 ## Running Scripts
+
+## Available Commands
+
+## Development Commands
+
+**Linting and Formatting:**
+
+```bash
+# Check code style and quality
+pnpm lint
+
+# Format all TypeScript files (if configured)
+# pnpm format
+```
+
+**Building:**
+
+```bash
+# Compile TypeScript to JavaScript
+pnpm build
+
+# Development mode with auto-reload
+pnpm dev
+```
 
 ### Run the Rename Script
 
@@ -275,6 +353,28 @@ pnpm dev
 - The script provides detailed console output for all operations
 - All settings are validated before processing begins
 
+## Documentation
+
+For more information, refer to:
+
+- **[README.md](README.md)**: Project overview, features, and architecture.
+- **[CONTRIBUTING.md](CONTRIBUTING.md)**: Guidelines for contributing.
+- **Type Definitions**: Explore `src/types/` for data structures.
+
+## Extending the Application
+
+To add new functionality:
+
+1. **New Logic**: Add new processing functions in `src/logic/`.
+2. **New Settings**: Update `src/types/settings.ts` and `src/settings/index.ts`.
+3. **New Scripts**: Create a new entry point in `src/scripts/` and update `package.json` scripts.
+
+## External Resources
+
+- [Node.js Documentation](https://nodejs.org/docs/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [pnpm Documentation](https://pnpm.io/motivation)
+
 ## Support
 
 For issues, questions, or contributions:
@@ -290,4 +390,12 @@ For issues, questions, or contributions:
 - Or Assayag <orassayag@gmail.com>
 - GitHub: https://github.com/orassayag
 - StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-- LinkedIn: https://linkedin.com/in/orassayag
+- LinkedIn: [orassayag](https://linkedin.com/in/orassayag)
+
+## Last Updated
+
+2026-06-02
+
+## Version
+
+1.0.0

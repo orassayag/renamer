@@ -6,15 +6,27 @@ Built in October 2025, with TypeScript for type safety and reliability, this too
 
 ## Features
 
+### Core Capabilities
+
 - **Pattern-based Renaming**: Automatically rename files based on configurable naming patterns
 - **Recursive Directory Scanning**: Process entire directory trees with subdirectory support
 - **Comprehensive Validation**: Full settings validation with specific error messages and unique error codes
-- **Flexible Configuration**: Customizable target names, separators, and replacement patterns
-- **Safe Operation**: Built-in safeguards, detailed logging, and error resilience
-- **Error Resilience**: Continues processing despite individual file failures
-- **TypeScript**: Fully typed with comprehensive type definitions
 - **Path Filtering**: Skip specific directories like `node_modules` and `.git`
 - **Configurable Delays**: Prevent file system overload with adjustable delays between operations
+
+### Technical Excellence
+
+- **Type Safety**: Full TypeScript implementation with strict type checking
+- **Error Handling**: Unique error codes (1000001-1000030) for easy troubleshooting
+- **Safe Operation**: Built-in safeguards and pre-execution validation
+- **Modular Architecture**: Separated logic for scanning, processing, and validation
+
+### Developer Experience
+
+- **Watch Mode**: Real-time development with `pnpm dev`
+- **Code Quality**: Pre-configured ESLint and Prettier
+- **Detailed Logging**: Clear console output for all operations
+- **Zero Dependencies**: Minimal external dependencies for security and speed
 
 ## Getting Started
 
@@ -65,6 +77,15 @@ export const SETTINGS: Settings = {
 pnpm start
 ```
 
+## Usage
+
+To use the renamer script:
+
+1. **Configure Settings**: Update `src/settings/index.ts` with your target patterns and scan path.
+2. **Run**: Execute `pnpm start` to begin the renaming process.
+3. **Monitor**: Watch the console for real-time updates and completion summary.
+4. **Verify**: Check your files to ensure they were renamed as expected.
+
 ## How It Works
 
 ```mermaid
@@ -100,6 +121,33 @@ flowchart TD
     style E fill:#ffe1e1
     style S fill:#e1e5ff
 ```
+
+## Architecture Principles
+
+This project follows clean code and robust architecture principles:
+
+1. **Validation First**: All settings are validated before any file operations begin.
+2. **Error Resilience**: The script handles individual file errors without stopping the entire process.
+3. **Type Safety**: Strict TypeScript implementation ensures data integrity.
+4. **Single Responsibility**: Each module has a clear, focused purpose (scanning, processing, validation).
+5. **Config-Driven**: Behavior is controlled through a centralized settings file.
+
+## Architecture
+
+The application is structured into logical layers:
+
+- **Logic Layer**: Core business logic for file scanning, pattern matching, and renaming.
+- **Scripts Layer**: Main execution entry point that orchestrates the process.
+- **Settings Layer**: Configuration management and validation.
+- **Utils Layer**: Cross-cutting utilities like delays and path filtering.
+- **Types Layer**: Centralized TypeScript definitions for consistency.
+
+## Design Patterns
+
+- **Guard Clauses**: Extensive use of early returns for cleaner logic.
+- **Functional Decomposition**: Breaking down complex tasks into small, testable functions.
+- **Configuration Pattern**: Centralized settings for easy modification.
+- **Asynchronous Queue**: Recursive scanning handled with async/await patterns.
 
 ### Process Flow
 
@@ -163,23 +211,26 @@ pnpm lint
 
 ## Project Structure
 
+### Directory Structure
+
 ```
 src/
-├── logic/
-│   ├── processFile.ts          # Individual file processing logic
-│   ├── scanAndRenameFiles.ts   # Directory scanning and recursion
-│   └── validateSettings.ts     # Comprehensive settings validation
-├── scripts/
-│   └── renameScript.ts         # Main execution script
-├── settings/
-│   └── index.ts                # Configuration settings
-├── types/
-│   ├── settings.ts             # TypeScript type definitions
-│   └── index.ts                # Type exports
-└── utils/
-    ├── shouldIgnorePath.ts     # Path filtering utilities
-    ├── sleep.ts                # Async delay utility
-    └── index.ts                # Utility exports
+├── logic/              # Business logic
+│   ├── index.ts        # Logic exports
+│   ├── processFile.ts  # File processing
+│   ├── scanAndRenameFiles.ts # Directory scanning
+│   └── validateSettings.ts # Settings validation
+├── scripts/            # Entry point scripts
+│   └── renameScript.ts # Main execution script
+├── settings/           # Configuration
+│   └── index.ts        # Settings definition
+├── types/              # Type definitions
+│   ├── index.ts        # Type exports
+│   └── settings.ts     # Settings interfaces
+└── utils/              # Utilities
+    ├── index.ts        # Utility exports
+    ├── shouldIgnorePath.ts # Filtering logic
+    └── sleep.ts        # Async delays
 ```
 
 ## Safety Features
@@ -196,6 +247,14 @@ src/
 - **Test Small**: Test with a small directory before processing large volumes
 - **No Undo**: The script doesn't provide undo functionality - keep backups!
 - **Pattern Matching**: Only processes files matching the exact naming pattern
+
+## Best Practices
+
+- **Backup First**: Always backup important directories before bulk operations.
+- **Test Small**: Test your settings with a small directory before processing large volumes.
+- **Check Paths**: Verify that your scan path is correct and accessible.
+- **Review Settings**: Double-check all configuration parameters before running.
+- **Use Unique Separators**: Use uncommon characters as separators to avoid unintended matches.
 
 ## Troubleshooting
 
@@ -214,6 +273,16 @@ The script provides specific error messages for common issues:
 - Type checking errors
 - Path validation failures
 
+## Support
+
+For issues, questions, or contributions:
+
+- Check console output for detailed error messages
+- Verify all settings are correctly configured
+- Ensure file system permissions are adequate
+- Open an issue on GitHub for bug reports or feature requests
+- Contact the author via email or LinkedIn
+
 ## Error Codes
 
 The script provides unique error codes (1000001-1000030) for all validation and runtime errors. Each error code follows the pattern `(1000XXX)` and appears at the end of error messages for easy troubleshooting and debugging.
@@ -230,16 +299,15 @@ The project uses:
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+This application has an MIT license - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 
-**Or Assayag**
-
-- Email: <orassayag@gmail.com>
-- GitHub: [orassayag](https://github.com/orassayag)
-- StackOverflow: [or-assayag](https://stackoverflow.com/users/4442606/or-assayag?tab=profile)
-- LinkedIn: [orassayag](https://linkedin.com/in/orassayag)
+- **Or Assayag** - _Initial work_ - [orassayag](https://github.com/orassayag)
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag
 
 ## Contributing
 
@@ -270,3 +338,10 @@ Please feel free to contact me with any question, comment, pull-request, issue, 
 ---
 
 **Fast, Safe, and Reliable Bulk File Renaming with TypeScript**
+
+## Acknowledgments
+
+- Built for educational and research purposes
+- Respects robots.txt and implements rate limiting
+- Uses user-agent rotation to avoid detection
+- Implements polite crawling practices
