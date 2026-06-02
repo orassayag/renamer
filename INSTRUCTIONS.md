@@ -103,6 +103,7 @@ All settings are configured in `src/settings/index.ts`. Edit the `SETTINGS` obje
 ### Build the Project
 
 Compiles TypeScript to JavaScript:
+
 ```bash
 pnpm build
 ```
@@ -110,6 +111,7 @@ pnpm build
 ### Lint the Code
 
 Checks code for linting errors:
+
 ```bash
 pnpm lint
 ```
@@ -117,6 +119,7 @@ pnpm lint
 ### Development Mode
 
 Run with watch mode for development:
+
 ```bash
 pnpm dev
 ```
@@ -248,16 +251,19 @@ All errors include a unique code (1000001-1000030) for easy troubleshooting. Err
 ## Development
 
 ### Building
+
 ```bash
 pnpm build
 ```
 
 ### Linting
+
 ```bash
 pnpm lint
 ```
 
 ### Running in Development Mode
+
 ```bash
 pnpm dev
 ```
@@ -280,8 +286,8 @@ For issues, questions, or contributions:
 
 ## Author
 
-* **Or Assayag** - *Initial work* - [orassayag](https://github.com/orassayag)
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- **Or Assayag** - _Initial work_ - [orassayag](https://github.com/orassayag)
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag

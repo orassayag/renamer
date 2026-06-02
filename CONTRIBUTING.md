@@ -9,6 +9,7 @@ Everyone is welcome to contribute to this project. Contributing doesn't just mea
 ### Reporting Issues
 
 If you find a bug or have a feature request:
+
 1. Check if the issue already exists in the [GitHub Issues](https://github.com/orassayag/renamer/issues)
 2. If not, create a new issue with:
    - Clear title and description
@@ -32,11 +33,13 @@ If you find a bug or have a feature request:
 ### Code Style Guidelines
 
 This project uses:
+
 - **TypeScript** with strict type checking
 - **ESLint** for code quality
 - **Prettier** for code formatting
 
 Before submitting:
+
 ```bash
 # Check for linting errors
 pnpm lint
@@ -60,6 +63,7 @@ pnpm start
 ### Adding New Features
 
 When adding new features:
+
 1. Create appropriate types in `src/types/`
 2. Add logic in `src/logic/` or utilities in `src/utils/`
 3. Update validation in `src/logic/validateSettings.ts` if needed
@@ -70,6 +74,7 @@ When adding new features:
 ### Error Code Management
 
 When adding new errors:
+
 1. Use the next available error code following the pattern `(1000XXX)`
 2. Keep error codes sequential and organized
 3. Include the error code at the end of the error message
@@ -79,9 +84,9 @@ When adding new errors:
 
 Please feel free to contact me with any question, comment, pull-request, issue, or any other thing you have in mind.
 
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag
 
 Thank you for contributing! 🙏
